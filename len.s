@@ -4,7 +4,7 @@ _lens:
 	push {fp,lr}
 	add fp,sp,#4
 	sub sp,sp,#16
-	mov r3,r1
+	mov r3,r0
 	mov r0,#0
 	
 	lenss:
