@@ -7,7 +7,7 @@ extern int _fill(int *a,char b,int c);
 int main(){
     char cc[1024];
     _fill(cc,'\0',240);
-    _fill(cc,'*',240);
+    _fill(cc,'*',200);
     printf("%s.....\n",cc);
     return 0;
 
