@@ -1,22 +1,19 @@
-.text
-.global main
-.extern printf 
-.extern strlen
+.global _lens
 @ arm-linux-gnueabihf-as -o len.o len.s
-@ arm-linux-gnueabihf-gcc -o len len.o -static
-@ ./my
-main:
-        push {fp,lr}
-	ldr r0,_adds
-	blx strlen
-	mov r1,r0
-	ldr r0,_adds
+_lens:
+	push {fp,lr}
+	add fp,sp,#4
+	sub sp,sp,#16
+	mov r3,r1
+	mov r0,#0
 	
-	blx printf
-	pop {fp,pc}                  
-            
-
-_adds:
-.word _string
-_string:
-.asciz "\033[40;37m\nHello world %d\n\0"    
+	lenss:
+		ldrb r1,[r3]
+		cmp r1,#0
+		beq lensss
+		add r3,r3,#1
+		add r0,r0,#1
+		b lenss 
+	lensss:
+	sub sp,fp,#4
+	pop {fp,pc}
