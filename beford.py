@@ -8,7 +8,8 @@ codess=codes.split("\n")
 codes=""
 
 for n in codess:
-    if codes.find(" "*tabs)!=0:
+    n=n.replace("\r","")
+    if n.find(" "*tabs)!=0:
         codes=codes + n+"\n"
     else:
         codes=codes + n[4:]+"\n"
